@@ -9,7 +9,8 @@
       "mood": "Quiet",
       "description": "A Sunday ritual. Waiting while my cousin gets his haircut.",
       "show": false,
-      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/barber%C3%ADa_etmzbt.jpg"
+      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/barber%C3%ADa_etmzbt.jpg",
+      "duration": 4000
       
     },
     {
@@ -22,7 +23,8 @@
       "description": "Stillness in the middle of the sea. Eyes closed, arms open, weightless.",
       "show": true,
       "order_slideshow": 2,
-      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/verano_gyuztm.jpg"
+      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/verano_gyuztm.jpg",
+      "duration": 9000
     },
     {
       "id": 3,
@@ -78,7 +80,8 @@
       "description": "Bad lighting, good company. Some moments are not meant to be sharp.",
       "show": true,
       "order_slideshow": 7,
-      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/Sin_t%C3%ADtulo_zlhnwr.jpg"
+      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/Sin_t%C3%ADtulo_zlhnwr.jpg",
+      "duration": 10000
     },
     {
       "id": 8,
@@ -90,7 +93,8 @@
       "description": "Three riders, one line, no room for doubt. Black and white felt right.",
       "show": true,
       "order_slideshow": 8,
-      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630981/vueltaEspa%C3%B1aBN_rlyawa.jpg"
+      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630981/vueltaEspa%C3%B1aBN_rlyawa.jpg",
+      "duration": 8000
     },
     {
       "id": 9,
@@ -113,7 +117,8 @@
       "description": "I was hungry and happy",
       "show": true,
       "order_slideshow": 9,
-      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630981/verano2_ttnooa.jpg"
+      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630981/verano2_ttnooa.jpg",
+      "duration": 13000
     },
     {
       "id": 11,
@@ -125,7 +130,8 @@
       "description": "My girlfriend relatives love swimming. I prefer floating.",
       "show": true,
       "order_slideshow": 6,
-      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/IMG_20200912_140607_lydint.jpg"
+      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/IMG_20200912_140607_lydint.jpg",
+      "duration": 10500
     },
     {
       "id": 12,
@@ -137,7 +143,8 @@
       "description": "These are some of the colors of my town",
       "show": true,
       "order_slideshow": 3,
-      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/IMG_20191127_173855_hv5grx.jpg"
+      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/IMG_20191127_173855_hv5grx.jpg",
+      "duration": 9000
     },
     {
       "id": 13,
@@ -149,7 +156,8 @@
       "description": "A party with family and friends. My brother is blowing the candles and I am clapping (I think).",
       "show": true,
       "order_slideshow": 5,
-      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/IMG_20200101_233109_zllwez.jpg"
+      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/IMG_20200101_233109_zllwez.jpg",
+      "duration": 6500
     },
     {
       "id": 14,
@@ -161,7 +169,8 @@
       "description": "That's my mom taking a photo to the photographer with her new (then) Werlisa Color Club Camera before I was born",
       "show": true,
       "order_slideshow": 4,
-      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/WhatsApp_Image_2026-05-02_at_20.15.45_jbx8mn.jpg"
+      "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/WhatsApp_Image_2026-05-02_at_20.15.45_jbx8mn.jpg",
+      "duration": 9000
     },
     {
       "id": 15,
