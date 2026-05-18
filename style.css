@@ -29,7 +29,6 @@ body {
   background-repeat: no-repeat;
 }
 
-/* --- Header --- */
 .siteHeader {
   padding: 5rem 0 2rem;
   text-align: center;
@@ -267,6 +266,9 @@ body {
 }
 
 .lightboxNavLink {
+  background: transparent; 
+  border: none;           
+  padding: 0;  
   font-size: 0.62rem;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -458,6 +460,28 @@ body {
   color: #fff;
 }
 
-.slideshowCaption {
-  display: none !important;
+@media (max-width: 768px) {
+  .lightboxInner {
+    padding: 1rem 1rem 2rem;
+  }
+
+  .lightboxMain {
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+  }
+
+  .lightboxLeft, 
+  .lightboxRight {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .lightboxImgWrap {
+    height: 55vh; 
+  }
+  
+  .lightboxNavBar {
+    gap: 1.5rem; 
+    margin-bottom: 1rem;
+  }
 }
