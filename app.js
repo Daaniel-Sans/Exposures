@@ -169,12 +169,15 @@ function startSlideshow() {
     slideshow.classList.add('active');
     document.body.style.overflow = 'hidden';
 
+    slideshowPrev.style.display = 'none';
+    slideshowNext.style.display = 'none';
+
     slideshowAudio.currentTime = 0;
     slideshowAudio.play().catch(error => {
         console.log("Audio playback delayed:", error);
     });
 
-    showSlide();
+    showSlide(true);
 }
 
 function stopSlideshow() {
@@ -182,6 +185,9 @@ function stopSlideshow() {
     document.body.style.overflow = '';
     slideshowAudio.pause();
     clearTimeout(slideshowInterval);
+    
+    slideshowPrev.style.display = 'none';
+    slideshowNext.style.display = 'none';
 }
 
 function navigateSlideshow(direction) {
@@ -193,10 +199,10 @@ function navigateSlideshow(direction) {
     if (currentSlideshowIndex < 0) currentSlideshowIndex = slideshowTargets.length - 1;
     if (currentSlideshowIndex >= slideshowTargets.length) currentSlideshowIndex = 0;
     
-    showSlide();
+    showSlide(false);
 }
 
-function showSlide() {
+function showSlide(isAuto) {
     const slideshowTargets = allFrames.filter(f => f.show !== false);
     const frame = slideshowTargets[currentSlideshowIndex];
     if (!frame) return;
@@ -213,9 +219,23 @@ function showSlide() {
 
         const currentDuration = frame.duration || 5000;
 
-        slideshowInterval = setTimeout(() => {
-            navigateSlideshow(1);
-        }, currentDuration);
+        if (isAuto) {
+            slideshowInterval = setTimeout(() => {
+                const nextIndex = currentSlideshowIndex + 1;
+                
+                if (nextIndex >= slideshowTargets.length) {
+                    currentSlideshowIndex = 0;
+                    
+                    slideshowPrev.style.display = 'block';
+                    slideshowNext.style.display = 'block';
+                    
+                    showSlide(false);
+                } else {
+                    currentSlideshowIndex = nextIndex;
+                    showSlide(true);
+                }
+            }, currentDuration);
+        }
 
     }, 250);
 }
