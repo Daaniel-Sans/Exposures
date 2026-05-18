@@ -1,0 +1,95 @@
+:root {
+  --bgDeep: #0b1016;
+  --kodakYellow: #FFB500;
+  --kodakOrange: #E8722A;
+  --textMain: #E0E0E0;
+  --textMuted: #888888;
+  --fontUi: 'Courier Prime', monospace;
+  --fontBrand: 'Bebas Neue', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bgDeep);
+  color: var(--textMain);
+  font-family: var(--fontUi);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: url('https://res.cloudinary.com/da9tytxsu/image/upload/v1777657817/imagen_1_agchdk.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.siteHeader {
+  padding: 5rem 0 2rem;
+  text-align: center;
+}
+
+.siteTitle {
+  font-family: var(--fontBrand);
+  font-size: 4.5rem;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.siteSubtitle {
+  color: var(--kodakYellow);
+  font-size: 1rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* --- Filters --- */
+.filtersSection {
+  padding: 2rem 0 1.5rem;
+}
+
+.filterButtons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filterBtn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--textMuted);
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  font-family: var(--fontUi);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.filterBtn:hover {
+  color: #fff;
+  border-bottom-color: var(--kodakOrange);
+}
+
+.filterBtn.active {
+  color: var(--kodakYellow);
+  border-bottom-color: var(--kodakYellow);
+}
+
+.siteFooter {
+  padding: 5rem 0;
+  text-align: center;
+  color: #666;
+  font-size: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
