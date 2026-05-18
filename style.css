@@ -29,6 +29,7 @@ body {
   background-repeat: no-repeat;
 }
 
+/* --- Header --- */
 .siteHeader {
   padding: 5rem 0 2rem;
   text-align: center;
@@ -50,7 +51,6 @@ body {
   text-transform: uppercase;
 }
 
-/* --- Filters --- */
 .filtersSection {
   padding: 2rem 0 1.5rem;
 }
@@ -84,14 +84,6 @@ body {
 .filterBtn.active {
   color: var(--kodakYellow);
   border-bottom-color: var(--kodakYellow);
-}
-
-.siteFooter {
-  padding: 5rem 0;
-  text-align: center;
-  color: #666;
-  font-size: 0.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* --- Card --- */
@@ -161,7 +153,6 @@ body {
   font-style: italic;
 }
 
-/* --- Card Body --- */
 .cardBody {
   padding: 1rem 0.75rem;
   text-align: left;
@@ -190,7 +181,14 @@ body {
   opacity: 0.8;
 }
 
-/* --- Animations --- */
+.siteFooter {
+  padding: 5rem 0;
+  text-align: center;
+  color: #666;
+  font-size: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -200,4 +198,266 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 16, 22, 0.96);
+  z-index: 1000;
+  overflow-y: auto;
+  backdrop-filter: blur(4px);
+}
+
+.lightbox.active {
+  display: block;
+}
+
+.lightboxInner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+}
+
+.lightboxMain {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) 140px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.lightboxLeft {
+  padding-top: 3.5rem;
+}
+
+.lightboxByline {
+  font-size: 0.58rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.18);
+  margin-bottom: 0.75rem;
+  font-family: var(--fontUi);
+}
+
+.lightboxDescription {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.48);
+  font-style: italic;
+  line-height: 1.75;
+  font-family: var(--fontUi);
+}
+
+.lightboxRight {
+  padding-top: 3.5rem;
+}
+
+.lightboxCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.lightboxNavBar {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.lightboxNavLink {
+  font-size: 0.62rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  font-family: var(--fontUi);
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.lightboxNavLink:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.lightboxNavClose {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.lightboxNavClose:hover {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.lightboxTitle {
+  font-family: var(--fontUi);
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+}
+
+.lightboxImgWrap {
+  width: 100%;
+  height: 80vh;
+}
+
+.lightboxImgWrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.lightboxMeta strong {
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.22);
+  margin-right: 4px;
+  font-size: 0.58rem;
+}
+
+.lightboxMeta .lbAccent {
+  color: var(--kodakYellow);
+  font-style: italic;
+  margin-right: 1.25rem;
+}
+
+.lightboxMeta .lbValue {
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  margin-right: 1.25rem;
+}
+
+.slideshowBtn {
+  display: block;
+  margin: 1.5rem auto 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--kodakOrange);
+  color: var(--kodakOrange);
+  font-family: var(--fontUi);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slideshowBtn:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+.slideshow {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.slideshow.active {
+  display: flex;
+}
+
+.slideshowClose {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 10;
+  font-family: var(--fontUi);
+}
+
+.slideshowClose:hover {
+  color: #fff;
+}
+
+.slideshowImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideshowImageWrapper img {
+  max-height: 80vh;
+  max-width: 90vw;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.slideshowImageWrapper img.visible {
+  opacity: 1;
+}
+
+.slideshowCaption {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease 0.5s;
+}
+
+.slideshowCaption.visible {
+  opacity: 1;
+}
+
+.slideshowTitle {
+  font-family: var(--fontBrand);
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: 4px;
+  margin-bottom: 0.3rem;
+}
+
+.slideshowMeta {
+  font-family: var(--fontUi);
+  font-size: 0.75rem;
+  color: var(--kodakYellow);
+  letter-spacing: 2px;
+  font-style: italic;
+}
+
+.slideshowControls {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1.5rem;
+}
+
+.slideshowNav {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-family: var(--fontUi);
+}
+
+.slideshowNav:hover {
+  color: #fff;
+}
+
+.slideshowCaption {
+  display: none !important;
 }
