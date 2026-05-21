@@ -62,30 +62,34 @@ body {
 }
 
 .filterBtn {
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid transparent;
-  color: var(--textMuted);
-  padding: 0.4rem 0.75rem;
-  cursor: pointer;
-  font-family: var(--fontUi);
-  font-size: 0.7rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  transition: all 0.2s ease;
+   font-size: 12px;
+    font-weight: 300;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border: 1px solid var(--kodakOrange);
+    background: transparent;
+    color: var(--kodakOrange);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    font-family: 'Courier Prime', sans-serif;
+  
 }
 
 .filterBtn:hover {
-  color: #fff;
-  border-bottom-color: var(--kodakOrange);
+  color: var(--kodakYellow);
+  border-color: var(--kodakYellow);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.593);
+  
 }
 
 .filterBtn.active {
   color: var(--kodakYellow);
   border-bottom-color: var(--kodakYellow);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.593);
+  background: rgba(255, 183, 0, 0.267);
 }
 
-/* --- Card --- */
 .frameCard {
   margin-bottom: 4rem;
   display: flex;
@@ -181,114 +185,103 @@ body {
 }
 
 .rollsSection {
-  padding: 0.8rem 0 0.5rem;
+  padding: 2rem 0;
 }
 
 .rollsCard {
   background: transparent;
   border: none;
-  padding: 0.2rem 0 0.5rem;
+  padding: 0.5rem 0 0.5rem;
   text-align: center;
 }
 
 .rollsStrip {
   position: relative;
-  display: grid;
-  gap: 0.25rem;
-  padding: 0.45rem 0.25rem 0.45rem;
-  background: transparent;
-  border: none;
+  background: #120c06;
+  border: 1px solid rgba(232, 114, 42, 0.25);
+  border-radius: 4px;
   overflow: hidden;
-  max-width: 100%;
-  margin: 0 auto;
+  padding: 0.5rem 0;
+
+  /* ⚡ EL CAMBIO QUE LO SOLUCIONA TODO ⚡ */
+  display: block;
+  width: min-content;   
+  max-width: 95%;      
+  margin: 0 auto;      
+
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 .rollsPerforations {
   display: block;
-  text-align: center;
-  padding: 0;
-  margin: 0 auto;
-  width: fit-content;
-  min-width: 100%;
-  max-width: calc(100% - 1rem);
+  width: 100%;
+  height: 0.6rem;
 }
 
 .rollsPerforationsTop {
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.3rem;
 }
 
 .rollsPerforationsBottom {
-  margin-top: 0.65rem;
+  margin-top: 0.3rem;
 }
 
 .rollsPerforations::before {
-  content: '▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯';
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: clip;
-  font-size: clamp(0.55rem, 1vw, 0.78rem);
-  color: rgba(255, 144, 0, 0.7);
-  font-family: 'Courier Prime', monospace;
-  letter-spacing: clamp(0.2rem, 0.7vw, 0.45rem);
-  line-height: 1;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, 
+    rgba(255, 144, 0, 0.7) 0px, rgba(255, 144, 0, 0.7) 4px, 
+    transparent 4px, transparent 12px
+  );
+  background-size: 12px 100%;
   opacity: 0.85;
-  max-width: 100%;
 }
 
 .rollsFramesRow {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.35rem;
+  flex-wrap: nowrap;      
+  justify-content: center; 
+  gap: 0.25rem;
   overflow: visible;
-  padding-bottom: 0.1rem;
+  padding: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
   position: relative;
   z-index: 1;
 }
 
-.rollsFramesRow::before,
-.rollsFramesRow::after {
-  content: '';
-  /* decorative lines removed as requested */
-  display: none;
-}
-
-.rollsFramesRow::before {
-  top: -0.8rem;
-}
-
-.rollsFramesRow::after {
-  bottom: -0.8rem;
-}
-
 .rollFrame {
-  flex: 0 0 clamp(3rem, 6vw, 4rem);
-  min-width: clamp(3rem, 6vw, 4rem);
-  aspect-ratio: 1 / 1;
-  border: 1px solid rgba(255, 144, 0, 0.16);
-  background: transparent;
-  border-radius: 0.22rem;
+  flex: 0 0 clamp(4.5rem, 9vw, 6.5rem);
+  min-width: clamp(4.5rem, 9vw, 6.5rem);
+  aspect-ratio: 4 / 3;
+  background: #000;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
   overflow: hidden;
   position: relative;
-  scroll-snap-align: start;
-  cursor: default;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: grayscale(20%) contrast(90%);
 }
 
 .slideshowMute {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: none;
   color: #ffd080;
   width: 2rem;
   height: 2rem;
-  font-size: 0; /* hide any text fallback */
+  font-size: 0;
   cursor: pointer;
 }
 
-.slideshowMute:active { opacity: 0.9; }
+.slideshowMute:active {
+  opacity: 0.9;
+}
 
 .slideshowMute svg {
   width: 2rem;
@@ -296,15 +289,14 @@ body {
   display: block;
   fill: currentColor;
 }
-    
 
 @media (max-width: 768px) {
   .rollsStrip {
-    padding: 0.35rem 0.2rem 0.35rem;
+    padding: 0.35rem 0;
   }
 
-  .rollsPerforations::before {
-    letter-spacing: 0.35rem;
+  .rollFrame {
+    min-height: 3.2rem;
   }
 }
 
@@ -316,11 +308,6 @@ body {
   .rollFrame {
     flex: 0 0 clamp(2.6rem, 10vw, 3.5rem);
     min-width: clamp(2.6rem, 10vw, 3.5rem);
-  }
-
-  .rollsPerforations::before {
-    letter-spacing: 0.2rem;
-    font-size: 0.58rem;
   }
 }
 
@@ -349,16 +336,6 @@ body {
   margin-top: 0.45rem;
   margin-bottom: 0;
   text-transform: uppercase;
-}
-
-@media (max-width: 768px) {
-  .rollsFramesRow {
-    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
-  }
-
-  .rollFrame {
-    min-height: 3.2rem;
-  }
 }
 
 .siteFooter {
@@ -521,10 +498,9 @@ body {
   margin: 1.5rem auto 0;
   background: transparent;
   border: none;
-  border-bottom: 2px solid var(--kodakOrange);
   color: var(--kodakOrange);
   font-family: var(--fontUi);
-  font-size: 0.7rem;
+  font-size: 1rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   padding: 0.4rem 0.75rem;
