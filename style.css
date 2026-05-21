@@ -331,11 +331,12 @@ body {
 .rollsNote {
   font-family: var(--fontUi);
   font-size: 0.7rem;
-  color: var(--textMuted);
+  color: var(--kodakYellow);
   letter-spacing: 1.4px;
   margin-top: 0.45rem;
   margin-bottom: 0;
   text-transform: uppercase;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.7);
 }
 
 .siteFooter {
@@ -389,18 +390,10 @@ body {
   padding-top: 3.5rem;
 }
 
-.lightboxByline {
-  font-size: 0.58rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.18);
-  margin-bottom: 0.75rem;
-  font-family: var(--fontUi);
-}
 
 .lightboxDescription {
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(255, 255, 255, 0.551);
   font-style: italic;
   line-height: 1.75;
   font-family: var(--fontUi);
@@ -430,19 +423,19 @@ body {
   font-size: 0.62rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.775);
   cursor: pointer;
   font-family: var(--fontUi);
-  transition: color 0.2s ease;
+  transition: color 0.1s ease;
   user-select: none;
 }
 
 .lightboxNavLink:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--kodakYellow);
 }
 
 .lightboxNavClose {
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.327);
 }
 
 .lightboxNavClose:hover {
@@ -454,7 +447,7 @@ body {
   font-size: 0.62rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--textMain);
   margin-bottom: 0.5rem;
   font-weight: normal;
 }
@@ -472,25 +465,25 @@ body {
   object-position: center center;
 }
 
-.lightboxMeta strong {
-  font-weight: 700;
+.lightboxMeta strong {  
+  font-weight: 400;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.45);
   margin-right: 4px;
-  font-size: 0.58rem;
+  font-size:0.82rem;
 }
 
 .lightboxMeta .lbAccent {
   color: var(--kodakYellow);
-  font-style: italic;
   margin-right: 1.25rem;
+  font-size: 1rem;
 }
 
 .lightboxMeta .lbValue {
-  color: rgba(255, 255, 255, 0.5);
-  font-style: italic;
+  color: var(--kodakYellow);
   margin-right: 1.25rem;
+    font-size: 1rem;
 }
 
 .slideshowBtn {
