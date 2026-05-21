@@ -25,6 +25,24 @@ const slideshowClose = document.getElementById('slideshowClose');
 const slideshowPrev = document.getElementById('slideshowPrev');
 const slideshowNext = document.getElementById('slideshowNext');
 const slideshowAudio = document.getElementById('slideshowAudio');
+const rollsStripFrames = document.getElementById('rollsStripFrames');
+
+const speakerOnSVG = `
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 9v6h4l5 5V4L7 9H3z" />
+        <path d="M16.5 12c0-1.77-.99-3.29-2.5-4.03v8.06c1.51-.74 2.5-2.26 2.5-4.03z" />
+    </svg>`;
+
+const speakerOffSVG = `
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 9v6h4l5 5V4L7 9H3z" />
+        <path d="M19 6.41 17.59 5 13 9.59V14.4L16.42 18.8 19 16.21 15.59 12.8z" />
+        <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="1" />
+    </svg>`;
+
+const slideshowMute = document.getElementById('slideshowMute');
+const rollsSection = document.getElementById('rollsSection');
+const gallerySection = document.querySelector('main');
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchFrames();
@@ -43,6 +61,7 @@ async function fetchFrames() {
         
         filteredFrames = [...allFrames];
         renderCards(filteredFrames);
+        renderRollStrip();
     } catch (error) {
         console.error('Error fetching frames:', error);
         cardsContainer.innerHTML = `
@@ -88,6 +107,27 @@ function renderCards(frames) {
     });
 }
 
+function renderRollStrip() {
+    if (!rollsStripFrames) return;
+    const rollTargets = allFrames.filter(f => f.show !== false);
+    rollsStripFrames.innerHTML = '';
+
+    if (rollTargets.length === 0) {
+        rollsStripFrames.innerHTML = '<div class="rollsEmpty">No frames available yet.</div>';
+        return;
+    }
+
+    rollTargets.forEach((frame) => {
+        const frameEl = document.createElement('div');
+        frameEl.className = 'rollFrame';
+        frameEl.innerHTML = `
+            <img src="${frame.image}" alt="${frame.title}" loading="lazy" />
+        `;
+
+        rollsStripFrames.appendChild(frameEl);
+    });
+}
+
 function initFilters() {
     filterButtonsContainer.addEventListener('click', (e) => {
         if (!e.target.classList.contains('filterBtn')) return;
@@ -96,7 +136,18 @@ function initFilters() {
         e.target.classList.add('active');
 
         const category = e.target.getAttribute('data-category');
-        
+
+        if (category === 'Rolls') {
+            rollsSection.style.display = 'block';
+            gallerySection.style.display = 'none';
+            filteredFrames = [];
+            renderRollStrip();
+            return;
+        }
+
+        rollsSection.style.display = 'none';
+        gallerySection.style.display = 'block';
+
         if (category === 'all') {
             filteredFrames = [...allFrames];
         } else {
@@ -159,6 +210,23 @@ function initSlideshowEvents() {
     slideshowClose.addEventListener('click', stopSlideshow);
     slideshowPrev.addEventListener('click', () => navigateSlideshow(-1));
     slideshowNext.addEventListener('click', () => navigateSlideshow(1));
+    if (slideshowMute) {
+        // initialize icon and aria state
+        const setMuteUI = () => {
+            const muted = slideshowAudio ? slideshowAudio.muted : false;
+            slideshowMute.innerHTML = muted ? speakerOffSVG : speakerOnSVG;
+            slideshowMute.setAttribute('aria-pressed', muted ? 'true' : 'false');
+            slideshowMute.setAttribute('aria-label', muted ? 'Unmute audio' : 'Mute audio');
+        };
+
+        setMuteUI();
+
+        slideshowMute.addEventListener('click', () => {
+            if (!slideshowAudio) return;
+            slideshowAudio.muted = !slideshowAudio.muted;
+            setMuteUI();
+        });
+    }
 }
 
 function startSlideshow() {
@@ -169,8 +237,7 @@ function startSlideshow() {
     slideshow.classList.add('active');
     document.body.style.overflow = 'hidden';
 
-    slideshowPrev.style.display = 'none';
-    slideshowNext.style.display = 'none';
+    setNavControlsVisible(false);
 
     slideshowAudio.currentTime = 0;
     slideshowAudio.play().catch(error => {
@@ -186,8 +253,7 @@ function stopSlideshow() {
     slideshowAudio.pause();
     clearTimeout(slideshowInterval);
     
-    slideshowPrev.style.display = 'none';
-    slideshowNext.style.display = 'none';
+    setNavControlsVisible(false);
 }
 
 function navigateSlideshow(direction) {
@@ -226,9 +292,7 @@ function showSlide(isAuto) {
                 if (nextIndex >= slideshowTargets.length) {
                     currentSlideshowIndex = 0;
                     
-                    slideshowPrev.style.display = 'block';
-                    slideshowNext.style.display = 'block';
-                    
+                    setNavControlsVisible(true);
                     showSlide(false);
                 } else {
                     currentSlideshowIndex = nextIndex;
@@ -238,4 +302,11 @@ function showSlide(isAuto) {
         }
 
     }, 250);
+}
+
+function setNavControlsVisible(show) {
+    const display = show ? 'block' : 'none';
+    if (slideshowPrev) slideshowPrev.style.display = display;
+    if (slideshowNext) slideshowNext.style.display = display;
+    if (slideshowMute) slideshowMute.style.display = show ? 'none' : 'inline-flex';
 }

@@ -27,8 +27,22 @@
                 <button class="filterBtn" data-category="Travel">Travel</button>
                 <button class="filterBtn" data-category="Events">Events</button>
                 <button class="filterBtn" data-category="People">People</button>
+                <button class="filterBtn" data-category="Rolls">Rolls</button>
             </div>
-            <button class="slideshowBtn" id="slideshowBtn">▶ Slideshow</button>
+        </div>
+    </section>
+
+    <section class="rollsSection" id="rollsSection" style="display:none;">
+        <div class="container">
+            <div class="rollsCard">
+                <div class="rollsStrip" aria-label="Roll #1 film strip preview">
+                    <div class="rollsPerforations rollsPerforationsTop"></div>
+                    <div class="rollsFramesRow" id="rollsStripFrames"></div>
+                    <div class="rollsPerforations rollsPerforationsBottom"></div>
+                </div>
+                <button class="slideshowBtn" id="slideshowBtn">▶ Enter Roll #1</button>
+                <p class="rollsNote">A film roll of selected frames from this edit.</p>
+            </div>
         </div>
     </section>
 
@@ -44,6 +58,7 @@
         </div>
         <div class="slideshowControls">
             <button class="slideshowNav" id="slideshowPrev">&#9664;</button>
+            <button class="slideshowMute" id="slideshowMute" aria-pressed="false" aria-label="Silenciar audio">🔊</button>
             <button class="slideshowNav" id="slideshowNext">&#9654;</button>
         </div>
     </div>

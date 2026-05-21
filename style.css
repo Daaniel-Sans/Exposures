@@ -180,6 +180,187 @@ body {
   opacity: 0.8;
 }
 
+.rollsSection {
+  padding: 0.8rem 0 0.5rem;
+}
+
+.rollsCard {
+  background: transparent;
+  border: none;
+  padding: 0.2rem 0 0.5rem;
+  text-align: center;
+}
+
+.rollsStrip {
+  position: relative;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.45rem 0.25rem 0.45rem;
+  background: transparent;
+  border: none;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.rollsPerforations {
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+  width: fit-content;
+  min-width: 100%;
+  max-width: calc(100% - 1rem);
+}
+
+.rollsPerforationsTop {
+  margin-bottom: 0.65rem;
+}
+
+.rollsPerforationsBottom {
+  margin-top: 0.65rem;
+}
+
+.rollsPerforations::before {
+  content: '▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯';
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  font-size: clamp(0.55rem, 1vw, 0.78rem);
+  color: rgba(255, 144, 0, 0.7);
+  font-family: 'Courier Prime', monospace;
+  letter-spacing: clamp(0.2rem, 0.7vw, 0.45rem);
+  line-height: 1;
+  opacity: 0.85;
+  max-width: 100%;
+}
+
+.rollsFramesRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  overflow: visible;
+  padding-bottom: 0.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.rollsFramesRow::before,
+.rollsFramesRow::after {
+  content: '';
+  /* decorative lines removed as requested */
+  display: none;
+}
+
+.rollsFramesRow::before {
+  top: -0.8rem;
+}
+
+.rollsFramesRow::after {
+  bottom: -0.8rem;
+}
+
+.rollFrame {
+  flex: 0 0 clamp(3rem, 6vw, 4rem);
+  min-width: clamp(3rem, 6vw, 4rem);
+  aspect-ratio: 1 / 1;
+  border: 1px solid rgba(255, 144, 0, 0.16);
+  background: transparent;
+  border-radius: 0.22rem;
+  overflow: hidden;
+  position: relative;
+  scroll-snap-align: start;
+  cursor: default;
+}
+
+.slideshowMute {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.03);
+  border: none;
+  color: #ffd080;
+  width: 2rem;
+  height: 2rem;
+  font-size: 0; /* hide any text fallback */
+  cursor: pointer;
+}
+
+.slideshowMute:active { opacity: 0.9; }
+
+.slideshowMute svg {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  fill: currentColor;
+}
+    
+
+@media (max-width: 768px) {
+  .rollsStrip {
+    padding: 0.35rem 0.2rem 0.35rem;
+  }
+
+  .rollsPerforations::before {
+    letter-spacing: 0.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rollsFramesRow {
+    gap: 0.25rem;
+  }
+
+  .rollFrame {
+    flex: 0 0 clamp(2.6rem, 10vw, 3.5rem);
+    min-width: clamp(2.6rem, 10vw, 3.5rem);
+  }
+
+  .rollsPerforations::before {
+    letter-spacing: 0.2rem;
+    font-size: 0.58rem;
+  }
+}
+
+.rollFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: invert(1) sepia(0.5) saturate(0.25) contrast(1.02) brightness(0.62) hue-rotate(10deg);
+  transform: scale(1.08);
+  opacity: 0.92;
+}
+
+.rollFrame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 169, 64, 0.08) 0%, transparent 20%, transparent 80%, rgba(0, 0, 0, 0.18) 100%);
+  pointer-events: none;
+}
+
+.rollsNote {
+  font-family: var(--fontUi);
+  font-size: 0.7rem;
+  color: var(--textMuted);
+  letter-spacing: 1.4px;
+  margin-top: 0.45rem;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .rollsFramesRow {
+    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+  }
+
+  .rollFrame {
+    min-height: 3.2rem;
+  }
+}
+
 .siteFooter {
   padding: 5rem 0;
   text-align: center;
@@ -484,4 +665,26 @@ body {
     gap: 1.5rem; 
     margin-bottom: 1rem;
   }
+
+.slideshowNav {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.slideshowNav.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- Forzar ocultación inicial de las flechas --- */
+.slideshowNav {
+    display: none !important; /* 🚩 Ocultos por defecto desde el inicio */
+}
+
+/* --- Mostrar solo cuando el JS decida poner la clase .visible --- */
+.slideshowNav.visible {
+    display: inline-block !important; /* 🚩 Aparecen mágicamente al terminar el pase */
+}
+
 }
