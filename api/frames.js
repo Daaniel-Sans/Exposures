@@ -1,0 +1,192 @@
+const frames = [
+  {
+    "id": 1,
+    "title": "The Barber",
+    "location": "Sevilla, Spain",
+    "year": "2024",
+    "category": "Street",
+    "mood": "Quiet",
+    "description": "A Sunday ritual. Waiting while my cousin gets his haircut.",
+    "show": false,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/barber%C3%ADa_etmzbt.jpg",
+    "duration": 4000
+  },
+  {
+    "id": 2,
+    "title": "Floating",
+    "location": "Puerto de Santa María, Spain",
+    "year": "2021",
+    "category": "Summer",
+    "mood": "Dreamy",
+    "description": "Stillness in the middle of the sea. Eyes closed, arms open, weightless.",
+    "show": true,
+    "order_slideshow": 2,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/verano_gyuztm.jpg",
+    "duration": 9000
+  },
+  {
+    "id": 3,
+    "title": "Golden Bridge",
+    "location": "Sevilla, Spain",
+    "year": "2024",
+    "category": "Travel",
+    "mood": "Melancholic",
+    "description": "Caught in traffic at sunset. The city still under construction, the sky already on fire.",
+    "show": false,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/puente_uxpi7p.jpg"
+  },
+  {
+    "id": 4,
+    "title": "The Peloton",
+    "location": "El Bosque, Spain",
+    "year": "2024",
+    "category": "Summer",
+    "mood": "Energetic",
+    "description": "Colors blur into motion. A hundred riders pass in seconds and leave silence behind.",
+    "show": false,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630981/vueltaEspa%C3%B1a_sxsz2m.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Red Box",
+    "location": "Turin, Italy",
+    "year": "2024",
+    "category": "Travel",
+    "mood": "Playful",
+    "description": "Every city has its own chaos. This one fits inside a mailbox.",
+    "show": false,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/torino_uuv9af.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Genoa Afternoon",
+    "location": "Genoa, Italy",
+    "year": "2024",
+    "category": "Travel",
+    "mood": "Warm",
+    "description": "An ordinary street in Genoa.",
+    "show": false,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630981/genova_ti84uc.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Party",
+    "location": "Sevilla, Spain",
+    "year": "2017",
+    "category": "People",
+    "mood": "Intimate",
+    "description": "Bad lighting, good company. Some moments are not meant to be sharp.",
+    "show": true,
+    "order_slideshow": 7,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/Sin_t%C3%ADtulo_zlhnwr.jpg",
+    "duration": 10000
+  },
+  {
+    "id": 8,
+    "title": "Sprint",
+    "location": "El Bosque, Spain",
+    "year": "2024",
+    "category": "Events",
+    "mood": "Tense",
+    "description": "Three riders, one line, no room for doubt. Black and white felt right.",
+    "show": true,
+    "order_slideshow": 8,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630981/vueltaEspa%C3%B1aBN_rlyawa.jpg",
+    "duration": 8000
+  },
+  {
+    "id": 9,
+    "title": "Purple Ride",
+    "location": "Sevilla, Spain",
+    "year": "2025",
+    "category": "Street",
+    "mood": "Experimental",
+    "description": "Sometimes you push the edit until reality breaks. This time it looked better broken.",
+    "show": false,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630980/andando_akj5pm.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Another day under the sun",
+    "location": "Málaga, Spain",
+    "year": "2024",
+    "category": "Summer",
+    "mood": "Free",
+    "description": "I was hungry and happy",
+    "show": true,
+    "order_slideshow": 9,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630981/verano2_ttnooa.jpg",
+    "duration": 13000
+  },
+  {
+    "id": 11,
+    "title": "A race to the buoy.",
+    "location": "In some place of the Alentejo, Portugal",
+    "year": "2022",
+    "category": "Summer",
+    "mood": "Holidays",
+    "description": "My girlfriend relatives love swimming. I prefer floating.",
+    "show": true,
+    "order_slideshow": 6,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/IMG_20200912_140607_lydint.jpg",
+    "duration": 10500
+  },
+  {
+    "id": 12,
+    "title": "Sunset colors",
+    "location": "El Bosque, Spain",
+    "year": "2023",
+    "category": "Autumn",
+    "mood": "Cloudy",
+    "description": "These are some of the colors of my town",
+    "show": true,
+    "order_slideshow": 3,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/IMG_20191127_173855_hv5grx.jpg",
+    "duration": 9000
+  },
+  {
+    "id": 13,
+    "title": "My brother's party birthday",
+    "location": "El Bosque, Spain",
+    "year": "1999",
+    "category": "Events",
+    "mood": "Happy",
+    "description": "A party with family and friends. My brother is blowing the candles and I am clapping (I think).",
+    "show": true,
+    "order_slideshow": 5,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/IMG_20200101_233109_zllwez.jpg",
+    "duration": 6500
+  },
+  {
+    "id": 14,
+    "title": "My mom taking a photo to the photographer",
+    "location": "Jerez, Spain",
+    "year": "1987",
+    "category": "People",
+    "mood": "Happy",
+    "description": "That's my mom taking a photo to the photographer with her new (then) Werlisa Color Club Camera before I was born",
+    "show": true,
+    "order_slideshow": 4,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746031/WhatsApp_Image_2026-05-02_at_20.15.45_jbx8mn.jpg",
+    "duration": 9000
+  },
+  {
+    "id": 15,
+    "title": "Knowing my girlfriend",
+    "location": "Seville, Spain",
+    "year": "2016",
+    "category": "People",
+    "mood": "Love",
+    "description": "I'm playing a song to my girl when we were dating.",
+    "show": true,
+    "order_slideshow": 1,
+    "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777746445/WhatsApp_Image_2026-04-21_at_18.02.53_nu6m0o.jpg",
+    "duration": 5000
+  }
+];
+
+export default function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Type', 'application/json');
+  res.status(200).json(frames);
+}

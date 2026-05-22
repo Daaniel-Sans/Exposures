@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/frames", "destination": "/api/frames" }
+  ]
+}

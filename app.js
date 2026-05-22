@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchFrames() {
     try {
-        const response = await fetch('http://localhost:3000/frames');
+        const response = await fetch('/frames');
         if (!response.ok) throw new Error('Network response was not ok');
         
         allFrames = await response.json();
