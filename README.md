@@ -6,7 +6,7 @@ The application dynamically reads structured photographic metadata (including lo
 
 ---
 
-📖 **Live Deployment Link:** [Deployment Link Pending](#)
+**Live Deployment Link:** <a href="https://exposuresss.vercel.app" target="_blank" rel="noopener noreferrer">https://exposuresss.vercel.app</a>
 
 ---
 
@@ -47,35 +47,55 @@ exposures/
 ├── vercel.json         ← Reverse-proxy routing map and URL rewrite configuration for production
 └── package.json        ← Project metadata manifest and npm automation run scripts
 ```
-
 ---
 
-## ✅ Requirements Compliance
+## 📋 Project Briefing & Specifications
 
-### Bootstrap 5 Architecture & Aesthetics
+This project was developed in compliance with the academic guidelines and technical requirements outlined below:
 
-| Requirement | Compliance |
-|-----------|-------------|
-| Official Component Usage | ✅ Generated card components strictly adhere to the native `.card`, `.card-img-top`, and `.card-body` DOM hierarchy. |
-| Custom Framework Overrides | ✅ Custom backgrounds, square framing, and specialized borders are injected safely via CSS without interrupting responsive grid workflows. |
-| Elimination of Anti-patterns | ✅ Refined high-specificity CSS class coupling to entirely eliminate destructive `!important` declarations. |
+### 🎯 Overview & Project Description
+The objective is to build a high-fidelity visual catalog/landing page framework. The interface must dynamically read and render data structurally using a sequence of component cards populated by an asynchronous local data stream (`json-server`).
 
-### Advanced Dynamic JavaScript
+* **Theme:** 100% Free choice (Analog Photography & Cinematic Visual Diary selected).
+* **Aesthetics:** High-level custom styling, curated design systems, and strict visual coherence throughout the interface layout.
 
-| Requirement | Compliance |
-|-----------|-------------|
-| Asynchronous Data Fetching | ✅ Implemented `async/await` syntax wrapped around the native Fetch API for instant data streams. |
-| Reactive UI Filtering | ✅ Centralized event listener delegation to slice memory collections and re-render the view without reloading the page. |
-| Continuous Index Loops | ✅ Algorithmic boundary checks built into both the Lightbox and Slideshow components to handle infinite forward/backward navigation. |
-| Multimedia Lifecycle | ✅ Native media handle configuration managing play/pause states, track synchronization, and ARIA-compliant audio muting. |
+### 📦 Structural Content Requirements
+* **Minimum Threshold:** At least 10 active data card nodes deployed inside the database.
+* **Schema Granularity:** Each database entry object must feature a minimum of 5 distinct key-value descriptive properties.
+* **Semantic Naming Conventions:** Clean, project-specific metadata keys (avoiding generic naming architectures like `item1`, `data`, etc.).
 
-### Persistence & Deployment Lifecycle
+### 🎨 Design & Layout Guidelines
+* **Framework Requirement:** Mandatory architecture using the official **Bootstrap Card component hierarchy** (`.card`, `.card-img-top`, `.card-body`).
+* **Style Restrictions:** * ❌ Strictly prohibited use of inline CSS formatting rules.
+    * ❌ No decoupled or non-coherent visual layouts.
+    * ✔ Mandatory inclusion of professional custom web typography (Google Fonts framework integration).
+    * ✔ Custom design tokens, including specialized color palettes and complex background gradients.
 
-| Requirement | Compliance |
-|-----------|-------------|
-| Structured Database | ✅ Standalone `db.json` tracking schema attributes per entry (mood, category, custom duration, CDN paths). |
-| Environment Auto-detection | ✅ Dynamic conditional testing on `window.location.hostname` to cleanly switch between the local port and Vercel. |
-| Production Serverless Fix | ✅ Routed requests through a decoupled cloud function environment to circumvent Vercel's ephemeral disk state limitations. |
+### 🧪 Media Asset Management
+* **Cloud Hosting Pipelines:** All imagery, thumbnails, and visual backgrounds must be uploaded, securely managed, and fetched from the **Cloudinary CDN infrastructure**.
+* **Asset Boundaries:** ❌ No local file-path image hosting is allowed inside the final repository branch.
+
+### ⚙️ Core Technical Stack
+* **HTML5:** Structural layout and markup architecture.
+* **CSS3:** Bespoke visual design layout tokens and adaptive rendering sheets.
+* **JavaScript (ES6+):** Reactive logic execution and async DOM manipulation pipelines.
+* **Bootstrap 5.3:** Base UI structural framework grid mapping.
+* **JSON Server:** Dynamic mock database API streaming simulation.
+
+### 📡 Functional Logic Requirements
+* Asynchronous fetching pipelines implemented using native JavaScript `async/await` syntax.
+* Dynamic rendering architectures reading fluidly from the API data source directly into targeted DOM insertion wrappers.
+* Client-side reactivity handling data streams without full-page reloads.
+
+### 🧑‍💻 Code Quality Standards
+* **Language Constraint:** 100% of the codebase (source code, variables, function targets, routing points, and documentation) written strictly in English.
+* **Casing Policy:** Mandatory use of standard `camelCase` naming conventions across all variable declarations, functions, and active classes.
+* Modular, DRY (Don't Repeat Yourself), cleanly decoupled script components.
+
+### 🌐 Version Control & Deployment Lifecycle
+* Continuous git interaction with granular, semantic version tracking commits.
+* Cloud deployment hosting setup via production-ready environments (**Vercel** infrastructure mapping).
+
 
 ---
 
@@ -140,35 +160,35 @@ Transparent, seamless endpoint routing is commanded by the project map configura
 
 ## ▶️ How to Run & Deploy
 
-### 1. Local Development Environment
-To run this project locally on your machine, ensure you have [Node.js](https://nodejs.org/) installed:
+Follow these steps to clone the repository and run the project locally on your machine.
 
-1. Clone or download the Exposures repository to your local directory.
-2. Open your terminal at the root directory of the project and install the local mock server dependency:
-   ```bash
-   npm install
-   ```
-3. Boot up the local database server:
-   ```bash
-   npm run server
-   ```
-   *The mock database engine will now listen actively at `http://localhost:3000/frames`.*
-4. Serve `index.html` using a static browser tool like **Live Server** in VS Code. The core script (`app.js`) will detect the localhost domain automatically and fetch from port 3000 seamlessly.
+### Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) and Git installed on your system.
 
-### 2. Cloud Production Deployment (Vercel)
-To successfully deploy the project bypassing Vercel's persistent server restrictions, follow these deployment steps:
+### 1. Clone the Repository
+Open your terminal and run the following command to clone the project:
+```bash
+git clone https://github.com/Daaniel-Sans/Exposures.git
+```
 
-1. Commit and push all your updated code changes (including the newly created `api/frames.js` and `vercel.json` files) to your connected GitHub repository:
-   ```bash
-   git add .
-   git commit -m "feat: setup serverless functions and proxy routing rules for deployment"
-   git push origin main
-   ```
-2. Log into your cloud dashboard account at [Vercel](https://vercel.com/) using your GitHub credentials.
-3. Click on the **"Add New"** dropdown button and select **"Project"**.
-4. Import your specific `exposures` project repository from the visible list.
-5. Leave all framework preset settings at their default values (Vercel automatically analyzes the root static files and links the serverless lambda functions folder seamlessly).
-6. Click on the **"Deploy"** button. Once completed, Vercel will output your production live URL link to share.
+### 2. Install Dependencies
+Navigate into the project directory and install the local mock server (`json-server`):
+```bash
+cd Exposures
+npm install
+```
+
+### 3. Start the Mock Database Server
+Launch the local API execution environment:
+```bash
+npm run server
+```
+*The database engine will boot up and actively listen for image asset queries at `http://localhost:3000/frames`.*
+
+### 4. Launch the Application
+Open `index.html` using a local static server tool (such as the **Live Server** extension in VS Code). 
+
+> 💡 **Note on Media Assets:** The core script (`app.js`) automatically detects your local environment, fetches data from port 3000, and renders the images. All high-resolution photographic files are hosted externally on a secure Cloudinary CDN, meaning they will load instantly without requiring local media downloads.
 
 ---
 
