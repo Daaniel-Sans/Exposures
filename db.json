@@ -42,7 +42,7 @@
       "title": "The Peloton",
       "location": "El Bosque, Spain",
       "year": "2024",
-      "category": "Events",
+      "category": "Summer",
       "mood": "Energetic",
       "description": "Colors blur into motion. A hundred riders pass in seconds and leave silence behind.",
       "show": false,
@@ -51,7 +51,7 @@
     {
       "id": 5,
       "title": "Red Box",
-      "location": "Torino, Italy",
+      "location": "Turin, Italy",
       "year": "2024",
       "category": "Travel",
       "mood": "Playful",
@@ -61,12 +61,12 @@
     },
     {
       "id": 6,
-      "title": "Genova Afternoon",
-      "location": "Genova, Italy",
+      "title": "Genoa Afternoon",
+      "location": "Genoa, Italy",
       "year": "2024",
       "category": "Travel",
       "mood": "Warm",
-      "description": "An ordinary street in Genova.",
+      "description": "An ordinary street in Genoa.",
       "show": false,
       "image": "https://res.cloudinary.com/da9tytxsu/image/upload/v1777630981/genova_ti84uc.jpg"
     },

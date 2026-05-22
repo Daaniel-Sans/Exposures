@@ -62,25 +62,23 @@ body {
 }
 
 .filterBtn {
-   font-size: 12px;
-    font-weight: 300;
-    letter-spacing: .3em;
-    text-transform: uppercase;
-    padding: 8px 16px;
-    border: 1px solid var(--kodakOrange);
-    background: transparent;
-    color: var(--kodakOrange);
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-    font-family: 'Courier Prime', sans-serif;
-  
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--kodakOrange);
+  background: transparent;
+  color: var(--kodakOrange);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  font-family: 'Courier Prime', sans-serif;
 }
 
 .filterBtn:hover {
   color: var(--kodakYellow);
   border-color: var(--kodakYellow);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.593);
-  
 }
 
 .filterBtn.active {
@@ -90,12 +88,16 @@ body {
   background: rgba(255, 183, 0, 0.267);
 }
 
-.frameCard {
+.frameCard.card {
   margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   animation: fadeInUp 0.5s ease both;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: inherit;
 }
 
 .cardImageWrapper {
@@ -104,12 +106,13 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-.cardImageWrapper img {
+.cardImageWrapper img.card-img-top {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
+  border-radius: 0;
 }
 
 .frameCard:hover .cardImageWrapper img {
@@ -156,7 +159,7 @@ body {
   font-style: italic;
 }
 
-.cardBody {
+.cardBody.card-body {
   padding: 1rem 0.75rem;
   text-align: left;
 }
@@ -202,13 +205,10 @@ body {
   border: 1px solid rgba(232, 114, 42, 0.25);
   overflow: hidden;
   padding: 0.5rem 0;
-
-  /* ⚡ EL CAMBIO QUE LO SOLUCIONA TODO ⚡ */
   display: block;
   width: min-content;   
   max-width: 95%;      
   margin: 0 auto;      
-
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
@@ -290,18 +290,16 @@ body {
   fill: currentColor;
 }
 
-/* 1. Estado por defecto (Sonido activado) */
 .slideshowMute .icon-audio-muted {
-  display: none; /* Oculta el icono de silencio */
+  display: none; 
 }
 
-/* 2. Estado alternativo (Cuando el botón tiene la clase .is-muted) */
 .slideshowMute.is-muted .icon-audio-on {
-  display: none; /* Oculta el icono de sonido */
+  display: none; 
 }
 
 .slideshowMute.is-muted .icon-audio-muted {
-  display: block; /* Muestra el icono de silencio */
+  display: block; 
 }
 
 @media (max-width: 768px) {
@@ -404,7 +402,6 @@ body {
   padding-top: 3.5rem;
 }
 
-
 .lightboxDescription {
   font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.551);
@@ -485,7 +482,7 @@ body {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.45);
   margin-right: 4px;
-  font-size:0.82rem;
+  font-size: 0.82rem;
 }
 
 .lightboxMeta .lbAccent {
@@ -497,7 +494,7 @@ body {
 .lightboxMeta .lbValue {
   color: var(--kodakYellow);
   margin-right: 1.25rem;
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .slideshowBtn {
@@ -649,44 +646,33 @@ body {
     margin-bottom: 1rem;
   }
 
-.slideshowNav {
+  .slideshowNav {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
-}
+  }
 
-.slideshowNav.visible {
+  .slideshowNav.visible {
     opacity: 1;
     pointer-events: auto;
-}
-
-.slideshowNav {
-        display: none !important; 
-    }
-
-    .slideshowNav.visible {
-        display: inline-block !important; 
-    }
-
-  } 
+  }
+} 
 
 footer.siteFooter a.footerLink {
   display: inline-block;
   margin-top: 1.25rem;
-  color: lab(43.19% 0 -0.01); 
+  color: #757575;  
   transition: color 0.2s ease, transform 0.2s ease;
-  margin: 1.25rem 20px 0 4px
+  margin: 1.25rem 20px 0 4px; 
 }
-
 
 footer.siteFooter a.footerLink:hover {
   color: var(--kodakYellow); 
   transform: scale(1.1);
 }
 
-
 footer.siteFooter a.footerLink svg {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
   fill: currentColor; 
 }
