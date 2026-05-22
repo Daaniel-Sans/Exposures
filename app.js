@@ -27,20 +27,7 @@ const slideshowNext = document.getElementById('slideshowNext');
 const slideshowAudio = document.getElementById('slideshowAudio');
 const rollsStripFrames = document.getElementById('rollsStripFrames');
 
-const speakerOnSVG = `
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M3 9v6h4l5 5V4L7 9H3z" />
-        <path d="M16.5 12c0-1.77-.99-3.29-2.5-4.03v8.06c1.51-.74 2.5-2.26 2.5-4.03z" />
-    </svg>`;
-
-const speakerOffSVG = `
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M3 9v6h4l5 5V4L7 9H3z" />
-        <path d="M19 6.41 17.59 5 13 9.59V14.4L16.42 18.8 19 16.21 15.59 12.8z" />
-        <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="1" />
-    </svg>`;
-
-const slideshowMute = document.getElementById('slideshowMute');
+const slideshowMute = document.getElementById('slideshowMuteBtn');
 const rollsSection = document.getElementById('rollsSection');
 const gallerySection = document.querySelector('main');
 
@@ -94,7 +81,7 @@ function renderCards(frames) {
                 <div class="card-body cardBody px-2">
                     <span class="cardDateStamp">${frame.location}, ${frame.year}</span>
                     <p class="card-text cardDescription">${frame.description}</p>
-                    ${frame.mood ? `<span class="cardMood">Mood: ${frame.mood}</span>` : ''}
+                    ${frame.mood ? `<span class="cardMood">#${frame.mood}</span>` : ''}
                 </div>
             </div>
         `;
@@ -210,11 +197,17 @@ function initSlideshowEvents() {
     slideshowClose.addEventListener('click', stopSlideshow);
     slideshowPrev.addEventListener('click', () => navigateSlideshow(-1));
     slideshowNext.addEventListener('click', () => navigateSlideshow(1));
+    
     if (slideshowMute) {
-        // initialize icon and aria state
         const setMuteUI = () => {
             const muted = slideshowAudio ? slideshowAudio.muted : false;
-            slideshowMute.innerHTML = muted ? speakerOffSVG : speakerOnSVG;
+            
+            if (muted) {
+                slideshowMute.classList.add('is-muted');
+            } else {
+                slideshowMute.classList.remove('is-muted');
+            }
+            
             slideshowMute.setAttribute('aria-pressed', muted ? 'true' : 'false');
             slideshowMute.setAttribute('aria-label', muted ? 'Unmute audio' : 'Mute audio');
         };

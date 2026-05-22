@@ -177,6 +177,7 @@ body {
 
 .cardMood {
   display: block;
+  text-transform: uppercase;
   margin-top: 1rem;
   color: var(--kodakYellow);
   font-size: 0.7rem;
@@ -287,6 +288,20 @@ body {
   height: 2rem;
   display: block;
   fill: currentColor;
+}
+
+/* 1. Estado por defecto (Sonido activado) */
+.slideshowMute .icon-audio-muted {
+  display: none; /* Oculta el icono de silencio */
+}
+
+/* 2. Estado alternativo (Cuando el botón tiene la clase .is-muted) */
+.slideshowMute.is-muted .icon-audio-on {
+  display: none; /* Oculta el icono de sonido */
+}
+
+.slideshowMute.is-muted .icon-audio-muted {
+  display: block; /* Muestra el icono de silencio */
 }
 
 @media (max-width: 768px) {
