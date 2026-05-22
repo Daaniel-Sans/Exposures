@@ -356,7 +356,7 @@ body {
 .siteFooter {
   padding: 5rem 0;
   text-align: center;
-  color: #666;
+  color: #a5a5a5;
   font-size: 0.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -453,7 +453,7 @@ body {
 }
 
 .lightboxNavClose:hover {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.805);
 }
 
 .lightboxTitle {
@@ -512,7 +512,7 @@ body {
   text-transform: uppercase;
   padding: 0.4rem 0.75rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
 }
 
 .slideshowBtn:hover {
@@ -544,7 +544,7 @@ body {
   color: rgba(255, 255, 255, 0.4);
   font-size: 1.5rem;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.1s ease;
   z-index: 10;
   font-family: var(--fontUi);
 }
@@ -616,7 +616,7 @@ body {
   color: rgba(255, 255, 255, 0.4);
   font-size: 2rem;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.1s ease;
   font-family: var(--fontUi);
 }
 
@@ -660,14 +660,33 @@ body {
     pointer-events: auto;
 }
 
-/* --- Forzar ocultación inicial de las flechas --- */
 .slideshowNav {
-    display: none !important; /* 🚩 Ocultos por defecto desde el inicio */
+        display: none !important; 
+    }
+
+    .slideshowNav.visible {
+        display: inline-block !important; 
+    }
+
+  } 
+
+footer.siteFooter a.footerLink {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: lab(43.19% 0 -0.01); 
+  transition: color 0.2s ease, transform 0.2s ease;
+  margin: 1.25rem 20px 0 4px
 }
 
-/* --- Mostrar solo cuando el JS decida poner la clase .visible --- */
-.slideshowNav.visible {
-    display: inline-block !important; /* 🚩 Aparecen mágicamente al terminar el pase */
+
+footer.siteFooter a.footerLink:hover {
+  color: var(--kodakYellow); 
+  transform: scale(1.1);
 }
 
+
+footer.siteFooter a.footerLink svg {
+    width: 32px;
+    height: 32px;
+  fill: currentColor; 
 }
